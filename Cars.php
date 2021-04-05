@@ -21,6 +21,8 @@ class Cars extends Vehicle
         
     }
 
+     
+
     public function getEnergy(): string
     {
         return $this->energy;

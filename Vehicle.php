@@ -1,10 +1,12 @@
 <?php
 // Vehicle.php
-require_once 'Cars.php';
-require_once 'Truck.php';
-require_once 'Bicycle.php';
-class Vehicle
+
+
+
+  abstract class Vehicle
 {
+
+   
  
     protected string $color;
 
@@ -14,6 +16,8 @@ class Vehicle
 
     protected int $nbWheels;
 
+   
+   
     public function __construct(string $color, int $nbSeats)
     {
         $this->color = $color;

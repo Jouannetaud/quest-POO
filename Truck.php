@@ -1,12 +1,14 @@
 <?php
 require_once 'Vehicle.php';
-require_once 'Vehicle.php';
+
 
 class Truck  extends Vehicle {
 
     private int $charged = 0;
     private int $capacity;
 
+   
+   
     public function __construct(int $capacity, string $color, int $nbSeats, string $energy)
     {
         parent::__construct($color, $nbSeats);
@@ -15,6 +17,7 @@ class Truck  extends Vehicle {
         $this->charged ;  
     }
 
+    
   
 
     public function getCharged(): string
