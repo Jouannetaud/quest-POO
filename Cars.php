@@ -1,8 +1,9 @@
 <?php
 require_once 'Vehicle.php';
+require_once 'LightableInterface.php';
 
 
-class Cars extends Vehicle implements LighttableInterface
+class Cars extends Vehicle implements LightableInterface
 {
     public const ALLOWED_ENERGIES = [
         'fuel',
@@ -14,7 +15,7 @@ class Cars extends Vehicle implements LighttableInterface
 
     private int $energyLevel;
 
-    private bool $hasParkBreak;
+    private bool $hasParkBreak = true;
 
     public function __construct( string $color,int $nbSeats, string $energy)
     {
@@ -65,7 +66,7 @@ class Cars extends Vehicle implements LighttableInterface
     /**
      * Get the value of hasParkBreak
      */ 
-    public function getHasParkBreak(): bool
+    public function HasParkBreak(): bool
     {
         return $this->hasParkBreak;
     }
@@ -75,24 +76,26 @@ class Cars extends Vehicle implements LighttableInterface
      *
      * @return  self
      */ 
-    public function setHasParkBreak($hasParkBreak): cars
+    public function setHasParkBreak(bool $hasParkBreak)
     {   
         $this->hasParkBreak = $hasParkBreak;
         
         return $this;
     }
 
-    public function forward(): string
+    public function start() 
     {
-        $this->currentSpeed = 15;
-
-       if($this->hasParkBreak === true) {
-
-       throw new Exception("impossible de rouler avec le frein à main");
-
-       } 
-        return "Go !";
+      try { if( $this->hasParkBrake === true){
+        throw new Exception ('Oublie du frein main');
+      }
+  
+    } catch (Exception $e) {
+        $this->hasParkBrake = false;
+        echo $e . ' Frein à main levé';
+  
+    } finally {
+        echo '<br> Ma voiture roule comme un donut <br>' ;
+    }
     }
 }
-
 

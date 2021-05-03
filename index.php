@@ -2,11 +2,11 @@
 require_once 'Cars.php';
 require_once 'Truck.php';
 require_once 'Bicycle.php';
-require_once 'Motorway.php';
-require_once 'PedestrianWay.php';
-require_once 'ResidentialWay.php';
-require_once 'LightableInterface.php';
-require_once 'Speedometer.php';
+//require_once 'Motorway.php';
+//require_once 'PedestrianWay.php';
+//require_once 'ResidentialWay.php';
+//require_once 'LightableInterface.php';
+//require_once 'Speedometer.php';
 
 
 $bike = new Bicycle("red", 2); 
@@ -32,18 +32,7 @@ $tornado = new Bicycle('black', 2);
 $tornado->setCurrentSpeed(15);
 
 $homer = new Cars("pink", 5 , 'fuel');
-try 
-{
-    $homer->forward(10);
-}
-catch (Exception $e)
-{
-    $homer->setHasParkBreak(false);
-}
-finally
-{
-    echo  "Ma voiture roule comme un donut";
-}
+
  
 
 
@@ -82,7 +71,7 @@ $truck = new Truck(80, 'black', 2, 'fuel');
 echo $truck->forward();
 echo $truck->brake();
 echo $truck->getCharged();*/
-
+/*
 $A11 = new MotorWay();
 
 $A11->addVehicle($car);
@@ -104,5 +93,12 @@ $avenue->addVehicle($bike);
 $avenue->addVehicle($truck);
 
 var_dump($avenue->getCurrentVehicles());
+*/
+
+$car->setHasParkBreak(true); 
+$car->start();
+
+$bicycle->setcurrentSpeed(15);
+echo $bicycle->switchOn();
 
 echo Speedometer::convertKmToMiles(10);
