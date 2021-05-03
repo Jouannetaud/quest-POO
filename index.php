@@ -5,11 +5,11 @@ require_once 'Bicycle.php';
 require_once 'Motorway.php';
 require_once 'PedestrianWay.php';
 require_once 'ResidentialWay.php';
+require_once 'LightableInterface.php';
+require_once 'Speedometer.php';
 
 
-
-
-$bike = new Bicycle("red", 2);
+$bike = new Bicycle("red", 2); 
 
 $bike->setCurrentSpeed = 35;
 //var_dump($bike);
@@ -27,14 +27,14 @@ $rockRider = new Bicycle('yellow', 2);
 
 $tornado = new Bicycle('black', 2);
 
-$tornado->forward();
+
 
 $tornado->setCurrentSpeed(15);
 
 $homer = new Cars("pink", 5 , 'fuel');
 try 
 {
-    $homer->forward();
+    $homer->forward(10);
 }
 catch (Exception $e)
 {
@@ -44,6 +44,7 @@ finally
 {
     echo  "Ma voiture roule comme un donut";
 }
+ 
 
 
 
@@ -104,3 +105,4 @@ $avenue->addVehicle($truck);
 
 var_dump($avenue->getCurrentVehicles());
 
+echo Speedometer::convertKmToMiles(10);
