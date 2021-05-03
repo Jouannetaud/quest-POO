@@ -25,12 +25,12 @@ class Cars extends Vehicle implements LighttableInterface
 
     public function switchOn()
     {
-        
+        return true;
     }  
  
     public function switchOff()
     {
- 
+        return false;
     }
 
      
