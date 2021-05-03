@@ -2,7 +2,7 @@
 require_once 'Vehicle.php';
 
 
-class Cars extends Vehicle
+class Cars extends Vehicle implements LighttableInterface
 {
     public const ALLOWED_ENERGIES = [
         'fuel',
@@ -14,11 +14,23 @@ class Cars extends Vehicle
 
     private int $energyLevel;
 
+    private bool $hasParkBreak;
+
     public function __construct( string $color,int $nbSeats, string $energy)
     {
         parent::__construct($color, $nbSeats); 
         $this->energy = $energy;
         
+    }
+
+    public function switchOn()
+    {
+        
+    }  
+ 
+    public function switchOff()
+    {
+ 
     }
 
      
@@ -46,6 +58,40 @@ class Cars extends Vehicle
     public function setEnergyLevel(int $energyLevel): void
     {
         $this->energyLevel = $energyLevel;
+    }
+
+    
+
+    /**
+     * Get the value of hasParkBreak
+     */ 
+    public function getHasParkBreak(): bool
+    {
+        return $this->hasParkBreak;
+    }
+
+    /**
+     * Set the value of hasParkBreak
+     *
+     * @return  self
+     */ 
+    public function setHasParkBreak($hasParkBreak): cars
+    {   
+        $this->hasParkBreak = $hasParkBreak;
+        
+        return $this;
+    }
+
+    public function forward(): string
+    {
+        $this->currentSpeed = 15;
+
+       if($this->hasParkBreak === true) {
+
+       throw new Exception("impossible de rouler avec le frein à main");
+
+       } 
+        return "Go !";
     }
 }
 

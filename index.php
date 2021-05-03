@@ -28,14 +28,28 @@ $rockRider = new Bicycle('yellow', 2);
 $tornado = new Bicycle('black', 2);
 
 $tornado->forward();
+
 $tornado->setCurrentSpeed(15);
 
 $homer = new Cars("pink", 5 , 'fuel');
+try 
+{
+    $homer->forward();
+}
+catch (Exception $e)
+{
+    $homer->setHasParkBreak(false);
+}
+finally
+{
+    echo  "Ma voiture roule comme un donut";
+}
+
 
 
 /*var_dump($homer);
 $homer->setCurrentSpeed = 30;
-echo $homer->forward();
+
 echo '<br> Vitesse de la voiture de Homer : ' . $homer->setCurrentSpeed . ' km/h' . '<br>';
 echo $homer->brake();
 echo '<br> Vitesse de la voiture de Homer : ' . $homer->setCurrentSpeed . ' km/h' . '<br>';
